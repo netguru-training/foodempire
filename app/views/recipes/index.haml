@@ -5,11 +5,11 @@
       %li= "Menu Item"
 
 %section
-	- recipes.each do |recipe|
+  - recipes.each do |recipe|
     %article
       %header
         %h2
-        	= recipe.title
+          = recipe.title
         %p
           Posted on
           %time{ :datetime => "2009-09-04T16:31:24+02:00" }= "September 4th 2009"
