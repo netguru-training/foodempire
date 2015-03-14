@@ -1,0 +1,8 @@
+
+- if user_signed_in?
+	- if @favorites.any?
+		= render @favorites
+	-else
+		%h3 You don`t have favorites yet...
+- else
+	%h3 Only logged user can have favorites.

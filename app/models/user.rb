@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :favorites, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -19,6 +20,20 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+
+
+  def add_to_favorite(recipe_id)
+    recipe = favorites.find_by(recipe_id: recipe_id)
+    if !(recipe)      
+      recipe = favorites.build(recipe_id: recipe_id)
+    end
+    recipe
+  end
+
+  def remove_favorite(recipe)
+      recipe.destroy
   end
 
 end
