@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314151257) do
+ActiveRecord::Schema.define(version: 20150314150120) do
+ActiveRecord::Schema.define(version: 20150314140024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blacklisted_ingredients", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "favorites", ["recipe_id"], name: "index_favorites_on_recipe_id", using: :btree
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name",       null: false
@@ -32,11 +48,11 @@ ActiveRecord::Schema.define(version: 20150314151257) do
 
   create_table "nutrition_values", force: :cascade do |t|
     t.string   "serving"
-    t.integer  "calories"
-    t.integer  "carbs"
-    t.integer  "sodium"
-    t.integer  "fiber"
-    t.integer  "protein"
+    t.float    "calories"
+    t.float    "carbs"
+    t.float    "sodium"
+    t.float    "fiber"
+    t.float    "protein"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "ingredient_id", null: false

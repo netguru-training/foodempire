@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require jquery-ui
+ *= require bootstrap_and_overrides
  */
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,700');
 
