@@ -1,5 +1,4 @@
-	<%= form_for(:ingredients, url: ingredients_path) do |f| %>
-        <label>Type your ingredients</label>
-        <input type="text" value="" />
-        <%= f.submit "Search" %>
-    <% end %>
+<%= form_for recipe do |f| %>
+  <%= f.autocomplete_field :ingredients, autocomplete_ingredients_name_recipes_path,
+  'data-delimiter' => ',', :multiple => true %>
+<% end %>

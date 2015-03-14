@@ -1,11 +1,12 @@
 class RecipesController < ApplicationController
-
+  autocomplete :ingredient, :name
   expose(:recipe)
   expose(:recipes)
 #skladniki - params[:ingredients]
   def index
     self.recipes = Recipe.all.includes(:ingredients).limit(10)
     gon.ingredients = Ingredient.all.map(&:name)
+    
   end
 
   def new
