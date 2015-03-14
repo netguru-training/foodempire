@@ -43,6 +43,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'decent_exposure'
 gem 'decent_decoration'
+gem 'pry-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -65,5 +66,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem "factory_girl_rails"
   gem 'webmock'
+  gem 'database_cleaner'
 end
 

@@ -2,9 +2,13 @@ class RecipesController < ApplicationController
 
   expose(:recipe)
   expose(:recipes)
-#skladniki - params[:ingredients]
+
   def index
-    self.recipes = Recipe.all.includes(:ingredients).limit(10)
+    if params[:ingredients].any?
+      self.recipes = RecipeFinder.new(params[:ingredients]).search
+    else
+      self.recipes = Recipe.all.includes(:ingredients).limit(10)
+    end
     gon.ingredients = Ingredient.all.map(&:name)
   end
 
