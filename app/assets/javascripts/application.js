@@ -13,5 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jquery-ui
+//= require autocomplete-rails
 //= require turbolinks
 //= require_tree .
+
+
+var availableTags = gon.ingredients;
