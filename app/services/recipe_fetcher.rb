@@ -34,7 +34,9 @@ class RecipeFetcher
     while(limit == 0 || page <= limit)
       @page = 1 if page == 0
       url = URL + page.to_s
+      puts "Fetching page #{page}..."
       result += JSON.parse(open(url).read)['results']
+      puts "Found result #{result.count} recipes"
       @page += 1
     end
     result
