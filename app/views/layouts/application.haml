@@ -2,6 +2,7 @@
 %html{ lang: 'en' }
   %head
     %title= yield(:title)
+    = Gon::Base.render_data({})
     %meta{ charset: 'utf-8' }/
     %meta{ content: 'IE=Edge,chrome=1', 'http-equiv' => 'X-UA-Compatible' }/
     %meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }/
@@ -22,6 +23,7 @@
         .row
           .column.col-sm-2#sidebar
             .nav
+              =render 'recipes/label'
               %li Tutaj bedzie input
               %li pod nim wybrane skladniki
           .column.col-sm-10#main

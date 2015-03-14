@@ -10,6 +10,9 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 #--------HAML--------
 gem 'haml-rails'
+#--------GON---------
+gem 'gon'
+gem 'jquery-ui-rails'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
