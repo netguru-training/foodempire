@@ -17,9 +17,9 @@ class RecipeFetcher
 
   def call
     results = fetch
-    ingriedents_for_recipe = []
     results.each do |result|
       ingredients = result['ingredients'].split(', ')
+      ingriedents_for_recipe = []
       ingredients.each do |ingredient|
         ingriedents_for_recipe << Ingredient.find_or_create_by(name: ingredient)
       end
