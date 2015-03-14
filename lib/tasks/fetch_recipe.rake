@@ -1,7 +1,6 @@
-require_relative '../../app/services/recipe_fetcher'
 namespace :fetch_recipe do
-  desc ''
-  task :run  => :environmen  do
+  desc 'Fetch Recipes'
+  task :run  => :environment  do
     RecipeFetcher.call
   end
 end
