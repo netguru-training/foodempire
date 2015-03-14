@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 ingredients = Ingredient.create([{ name: 'onion' }, { name: 'garlic' }, { name: 'chicken '}, { name: 'cheese' },
-  { name: 'oregano' }, { name: 'pepper' }])
+              { name: 'oregano' }, { name: 'pepper' }])
 
 recipe = Recipe.create({ name: 'Broccoli and Cheese',
   recipe_url: 'http://www.bigoven.com/45151-Broccoli-and-Cheese-Omelet-recipe.html',

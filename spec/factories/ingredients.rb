@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :ingredient do
-    name "potato"
+    sequence(:name) { |n| "potato #{n}" }
   end
 end
