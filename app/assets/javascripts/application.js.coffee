@@ -6,7 +6,6 @@
 #= require turbolinks
 #= require_tree .
 
-availableTags = gon.ingredients
 
 split = (val) ->
   val.split /,\s*/
@@ -21,9 +20,9 @@ $(document).ready ->
   ).autocomplete
     minLength: 0
     source: (request, response) ->
-      response $.ui.autocomplete.filter(availableTags, extractLast(request.term))
+      response $.ui.autocomplete.filter(gon.ingredients, extractLast(request.term))
     focus: ->
-      false
+      true
     select: (event, ui) ->
       terms = split(@value)
       terms.pop()
