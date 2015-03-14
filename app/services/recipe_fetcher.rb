@@ -15,11 +15,17 @@ class RecipeFetcher
   end
 
   def call
+    fetch
+  end
+
+  private
+
+  def fetch
     result = []
     while(page < 3)
       self.page += 1
       url = URL + page.to_s
-      result << JSON.parse(open(url).read)
+      result += JSON.parse(open(url).read)['results']
     end
     result
   end
