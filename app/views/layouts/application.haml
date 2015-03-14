@@ -10,4 +10,23 @@
     = javascript_include_tag 'application'
 
   %body
-    = yield
+    .container-fluid
+      .row
+        .col-lg-12
+          -if notice
+            %p.alert-success= notice
+          -if alert 
+            %p.alert-danger= alert
+    .wrapper
+      .box
+        .row
+          .column.col-sm-2#sidebar
+            .nav
+              %li Tutaj bedzie input
+              %li pod nim wybrane skladniki
+          .column.col-sm-10#main
+            .padding
+              .full.col-sm-9
+                .row
+                  .col-sm-10
+                    =yield 
