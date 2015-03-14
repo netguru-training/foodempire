@@ -20,6 +20,7 @@
 
 
 
+var availableTags = gon.ingredients;
 
 (function($, undefined) {
     if (typeof $.uix !== "object") { $.uix = {}; }
@@ -151,4 +152,18 @@
     $.widget("uix.autocomplete", $.uix.autocomplete);
 })(jQuery);
 
-var availableTags = gon.ingredients;
+var idx = 0;
+$("input:text")
+    .eq(idx++).autocomplete({
+        source: availableTags,
+        multiselect: false
+    }).end()
+    .eq(idx++).autocomplete({
+        source: availableTags,
+        multiselect: true
+    }).end()
+    .eq(idx++).autocomplete({
+        source: availableTags,
+        multiselect: true,
+        triggerChar: "@"
+    });
