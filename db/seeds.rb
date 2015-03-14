@@ -8,6 +8,3 @@
 
 Ingredient.create([{ name: 'potato' }, { name: 'apple'}, { name: 'egg'}, { name: 'sugar'},
                   { name: 'grape' }, { name: 'bread'}, { name: 'salt'}, { name: 'bread' }])
-
-
-Recipe.create
