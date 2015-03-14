@@ -15,7 +15,15 @@ class RecipeFetcher
   end
 
   def call
-    fetch
+    results = fetch
+    ingriedents_for_recipe = []
+    results.each do |result|
+      ingredients = result['ingredients'].split(', ')
+      ingredients.each do |ingredient|
+        ingriedents_for_recipe << Ingredient.find_or_create_by(name: ingredient)
+      end
+      Recipe.create(name: result['title'], recipe_url: result['href'], picture_url: result['thumbnail'], ingredients: ingriedents_for_recipe)
+    end
   end
 
   private
