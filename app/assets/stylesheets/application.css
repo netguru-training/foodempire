@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui
+ *= require bootstrap_and_overrides
  */
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,700');
 
@@ -20,6 +22,9 @@
 html, body {
    height: 100%;
    font-family:'Open Sans',arial,sans-serif;
+}
+input{
+  color: black;
 }
 .phot{
   height: 140px;
