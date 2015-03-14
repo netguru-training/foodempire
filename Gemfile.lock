@@ -39,8 +39,6 @@ GEM
     addressable (2.3.7)
     arel (6.0.0)
     bcrypt (3.1.10)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (4.0.1)
       columnize (= 0.9.0)
@@ -58,7 +56,6 @@ GEM
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     database_cleaner (1.4.1)
-    debug_inspector (0.0.2)
     decent_decoration (0.0.6)
       decent_exposure (>= 2.0)
     decent_exposure (2.3.2)
@@ -196,7 +193,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rb-readline (0.5.2)
-    rdoc (4.2.0)
     ref (1.0.5)
     request_store (1.1.0)
     responders (2.1.0)
@@ -228,9 +224,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
-    sdoc (0.4.1)
-      json (~> 1.7, >= 1.7.7)
-      rdoc (~> 4.0)
     sexp_processor (4.5.0)
     slop (3.6.0)
     spring (1.3.3)
@@ -263,11 +256,6 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
-    web-console (2.1.2)
-      activemodel (>= 4.0)
-      binding_of_caller (>= 0.7.2)
-      railties (>= 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
     webmock (1.20.4)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -299,11 +287,9 @@ DEPENDENCIES
   rails-jquery-autocomplete
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
-  sdoc (~> 0.4.0)
   spring
   therubyracer
   turbolinks
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)
-  web-console (~> 2.0)
   webmock
