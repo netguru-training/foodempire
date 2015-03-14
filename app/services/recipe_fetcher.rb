@@ -4,14 +4,15 @@ require 'json'
 class RecipeFetcher
   URL = 'http://www.recipepuppy.com/api/?p='
 
-  attr_accessor :page
+  attr_reader :page, :limit
 
-  def initialize(page = 0)
+  def initialize(page = 0, limit = 0)
     @page = page
+    @limit = limit
   end
 
-  def self.call(page = 0)
-    new(page).call
+  def self.call(page = 0, limit = 0)
+    new(page, limit).call
   end
 
   def call
@@ -30,10 +31,11 @@ class RecipeFetcher
 
   def fetch
     result = []
-    while(page < 3)
-      self.page += 1
+    while(limit == 0 || page <= limit)
+      @page = 1 if page == 0
       url = URL + page.to_s
       result += JSON.parse(open(url).read)['results']
+      @page += 1
     end
     result
   end
