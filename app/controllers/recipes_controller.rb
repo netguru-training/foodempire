@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   expose(:recipes)
 
   def index
-    if params[:ingredients].any?
+    if params[:ingredients].present?
       self.recipes = RecipeFinder.new(params[:ingredients]).search
     else
       self.recipes = Recipe.all.includes(:ingredients).limit(10)
