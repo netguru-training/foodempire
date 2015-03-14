@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  expose(:user) { current_user }
+  before_action :authenticate_user!
+  before_filter :require_permission
+  expose(:user) { User.find(params[:id]) }
 
   def show
   end
@@ -13,5 +15,12 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:blacklisted_ingredients)
+  end
+
+  def require_permission
+    if current_user != user
+      redirect_to root_path
+      flash[:error] = 'Access denied!'
+    end
   end
 end
