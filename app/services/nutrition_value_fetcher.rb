@@ -4,16 +4,16 @@ require 'json'
 class NutritionValueFetcher
   attr_accessor :ingredient
 
-  def initialize(ingredient)
+  def initialize(ingredient = nil)
     @ingredient = ingredient
   end
 
-  def self.call(ingredient)
+  def self.call(ingredient = nil)
     new(ingredient).call
   end
 
   def call
-    Ingredient.each do |ingredient|
+    Ingredient.all.each do |ingredient|
       nutritionix_api = open("https://api.nutritionix.com/v1_1/search/" + ingredient.name + "?results=0%3A10&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id%2Cnf_calories%2Cnf_sodium%2Cnf_sugars%2Cnf_protein%2Cnf_total_fat%2Cnf_total_carbohydrate%2Cnf_dietary_fiber&appId=70a7ed7d&appKey=32c78462c63d6b4425e87ec9e01f309a").read
       hash = JSON.parse( nutritionix_api )
       hash['hits'].map do |value|
