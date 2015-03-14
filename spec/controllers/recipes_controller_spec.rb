@@ -20,7 +20,7 @@ describe RecipesController do
       let!(:recipe_2) { create(:recipe, name: 'recipe', ingredients: [bread_ing]) }
 
       it 'exposes recipes containing specified ingredients' do
-        get :index, { ingredients: [salt_ing.id, potato_ing.id]}
+        get :index, ingredients: [salt_ing.id, potato_ing.id]
         expect(controller.recipes).to match_array([recipe_1])
       end
     end

@@ -8,7 +8,6 @@ require 'database_cleaner'
 
 ActiveRecord::Migration.maintain_test_schema!
 
-
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
@@ -24,7 +23,6 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.start
   end
-
 
   config.after(:each) do
     DatabaseCleaner.clean

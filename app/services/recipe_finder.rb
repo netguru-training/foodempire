@@ -1,11 +1,11 @@
 class RecipeFinder
   def initialize(ingredients)
-    @ingredients = ingredients.map { |ingredient| ingredient.to_i }
+    @ingredients = ingredients.map(&:to_i)
   end
 
   def search
     @recipes = Recipe.includes(:ingredients)
-    @recipes = @recipes.select { |recipe| (@ingredients - recipe.ingredients.pluck(:id)).empty?  }
+    @recipes = @recipes.select { |recipe| (@ingredients - recipe.ingredients.pluck(:id)).empty? }
   end
 
   private
