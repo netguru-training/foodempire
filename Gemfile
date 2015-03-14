@@ -20,6 +20,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
+gem 'active_model_serializers', '~> 0.8.3'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
