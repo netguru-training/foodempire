@@ -63,7 +63,8 @@ fetchRecipes = (ingredients_list) ->
         recipe += '<a href="' + Routes.ingredient_path(ingredient['id'])+'">' + ingredient['name'] + '</a>';
         if nr + 1 != item['ingredients'].length
           recipe += ', '
-      recipe += '  ' + '(' + item['total_calories'] + '  cal' + ')'
+      if item['total_calories'] != null
+        recipe += '  ' + '(' + item['total_calories'] + '  cal' + ')'
       recipe += '</div>'
       recipe += '</article>'
       $('#recipes').append recipe
