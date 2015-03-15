@@ -17,9 +17,9 @@ class RecipeFetcher
 
   def call
     results = fetch
-    ingriedents_for_recipe = []
     results.each do |result|
       ingredients = result['ingredients'].split(', ')
+      ingriedents_for_recipe = []
       ingredients.each do |ingredient|
         ingriedents_for_recipe << Ingredient.find_or_create_by(name: ingredient)
       end
@@ -34,7 +34,9 @@ class RecipeFetcher
     while(limit == 0 || page <= limit)
       @page = 1 if page == 0
       url = URL + page.to_s
+      puts "Fetching page #{page}..."
       result += JSON.parse(open(url).read)['results']
+      puts "Found result #{result.count} recipes"
       @page += 1
     end
     result

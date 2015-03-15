@@ -1,0 +1,6 @@
+%h1 User preferences
+= form_for user, url: user_path, method: :put do |f|
+  .form-group
+    = f.label :blacklisted_ingredients
+    = f.text_field :blacklisted_ingredients, class: 'form-control'
+  = f.submit 'Save', class: 'btn btn-success'

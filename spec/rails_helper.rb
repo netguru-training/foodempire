@@ -29,6 +29,7 @@ RSpec.configure do |config|
   end
 
   WebMock.disable_net_connect!(allow_localhost: true)
+  config.include Devise::TestHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
   config.infer_spec_type_from_file_location!
 end
