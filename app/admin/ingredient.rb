@@ -13,6 +13,11 @@ ActiveAdmin.register Ingredient do
   #   permitted << :other if resource.something?
   #   permitted
   # end
+  index do
+    column :name
+    column :created_at
+    actions
+  end
 
 
 end

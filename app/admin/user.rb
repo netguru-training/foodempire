@@ -15,4 +15,13 @@ ActiveAdmin.register User do
   # end
 
 
+  index do
+    column :email
+    column :name
+    column :blacklisted_ingredients
+    column :created_at
+    actions
+  end
+
+
 end
