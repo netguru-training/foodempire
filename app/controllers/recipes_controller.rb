@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
       self.recipes = Recipe.all.includes(:ingredients).limit(10)
     end
     gon.ingredients = Ingredient.all.map { |i| { value: i.id, label: i.name } }
-    gon.favourites = favorites_hash
+    gon.favourites = user_signed_in? ? favorites_hash : {}
     respond_to do |format|
       format.html
       format.json { render json: self.recipes.to_json(:include => :ingredients) }

@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
   end
+
+  before_filter do
+    gon.logged_in = user_signed_in?
+  end
 end
