@@ -1,2 +1,15 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+= link_to 'Back', :back, class: 'btn btn-sm btn-primary'
+%h1 User preferences
+= form_for user, url: user_path, method: :put do |f|
+  - if user.errors.any?
+    %h1= user.errors
+    #l
+      %h2= "#{pluralize(user.errors.count, "error")} prohibited this settings from being saved:"
+      %ul
+        - user.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :blacklisted_ingredients
+    = f.text_field :blacklisted_ingredients, class: 'form-control'
+  = f.submit 'Save', class: 'btn btn-success'

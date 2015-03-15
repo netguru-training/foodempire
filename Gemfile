@@ -20,6 +20,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
+gem 'font-awesome-sass', '~> 4.3.0'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

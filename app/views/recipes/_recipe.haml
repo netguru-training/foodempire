@@ -1,0 +1,7 @@
+%article
+  %h3
+    = link_to recipe.recipe_url do
+      = recipe.name
+  = link_to recipe.recipe_url do
+    = image_tag(recipe.picture_url)
+  = recipe.ingredients.map(&:name).join(", ")
