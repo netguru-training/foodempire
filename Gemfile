@@ -10,6 +10,7 @@ gem "twitter-bootstrap-rails"
 gem 'haml-rails'
 #--------GON---------
 gem 'gon'
+gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'rails-jquery-autocomplete'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
