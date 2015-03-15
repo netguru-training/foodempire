@@ -12,6 +12,10 @@ class NutritionValueFetcher
     new(ingredient).call
   end
 
+  def ingredient_name(name)
+    parse_ingredient_name(name)
+  end
+
   def call
     Ingredient.all.each do |ingredient|
       if ingredient.nutrition_value_ids.empty?
