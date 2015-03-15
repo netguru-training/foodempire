@@ -21,6 +21,8 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'font-awesome-sass', '~> 4.3.0'
+#----JS-ROOTS------
+gem "js-routes"
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
