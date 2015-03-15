@@ -23,7 +23,9 @@ $(document).ready ->
     mapping[ingredients[i].label] = ingredients[i].value
     ++i
 
-  ingredients_list = []
+  ingredients_list = gon.my_ingredients
+  for name in ingredients_list
+    appendIngredient(name)
   $('#ingredients').bind('keydown', (event) ->
     if event.keyCode == $.ui.keyCode.TAB and $(this).autocomplete('instance').menu.active
       event.preventDefault()
@@ -40,11 +42,6 @@ $(document).ready ->
         fetchRecipes(ingredients_list)
         event.preventDefault()
       false
-
-  $(".add-favourite").click (e, target) ->
-    $.post target.href, { id: target.dataset['id'] }, (data) ->
-      window.location.reload()
-    return false
 
 fetchRecipes = (ingredients_list) ->
   $.get 'recipes.json', { ingredients: ingredients_list }, (data) ->
@@ -69,10 +66,13 @@ fetchRecipes = (ingredients_list) ->
       recipe += '</div>'
       recipe += '</article>'
       $('#recipes').append recipe
-      return
-    return
-  return
 
+    $(".add-favourite").on 'click', (e) ->
+      target = $(e.target).parent()[0]
+      e.preventDefault()
+      $.post target.href, { id: target.dataset['id'] }, (data) ->
+        window.location.reload()
+    return false
 
 appendIngredient = (name) ->
   $('#selected_ingredients > ul').append '<li id=' + name + '><a href><i class="fa fa-trash"></i></a> ' + name + '</li>'

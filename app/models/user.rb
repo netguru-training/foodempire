@@ -25,6 +25,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  def ingredients
+    Ingredient.find(ingredients_ids)
+  end
 
 
   def add_to_favorite(recipe_id)
