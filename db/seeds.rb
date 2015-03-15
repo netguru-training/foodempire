@@ -11,8 +11,14 @@ ingredients = Ingredient.create([{ name: 'onion' }, { name: 'garlic' }, { name: 
 
 recipe = Recipe.create({ name: 'Broccoli and Cheese',
   recipe_url: 'http://www.bigoven.com/45151-Broccoli-and-Cheese-Omelet-recipe.html',
-  picture_url: 'http://img.recipepuppy.com/1.jpg'
+  picture_url: 'http://img.recipepuppy.com/560556.jpg'
 })
 
 recipe.ingredients = ingredients.first(3)
 recipe.save
+#####        A D M I N    A C C O U N T     ###########
+user_a = AdminUser.new
+user_a.email = "adminek@example.com"
+user_a.password = 'adminek123'
+user_a.password_confirmation = 'adminek123'
+user_a.save!
