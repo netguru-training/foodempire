@@ -22,6 +22,18 @@
       .box
         .row
           .column.col-sm-2#sidebar
+            %br
+            = link_to "Food Empire", root_url, class: "logo"
+            %ul.nav            
+              -if user_signed_in?
+                %li= link_to "Favorite", favorites_path
+                %li= link_to "Log out", destroy_user_session_path, method: :delete 
+              -else 
+                %li= link_to "Registration", new_user_registration_path 
+                %li= link_to "Sign in", new_user_session_path 
+              %li=render 'recipes/label'
+
+              
             .nav
               =render 'recipes/label'
               #selected_ingredients

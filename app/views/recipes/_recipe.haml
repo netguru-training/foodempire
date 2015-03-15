@@ -5,3 +5,9 @@
   = link_to recipe.recipe_url do
     = image_tag(recipe.picture_url)
   = recipe.ingredients.map(&:name).join(", ")
+  %br
+  -if user_signed_in?
+    -if favorites_hash.has_key?(recipe.id) 
+      = button_to "Remove", remove_favorite_path(favorites_hash[recipe.id]), method: :delete, class: 'btn-black btn-sm'
+    -else
+      =button_to "Favorite", favorites_path(recipe_id: recipe.id), class: "btn-black btn-sm"

@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :recipes do
     get :autocomplete_ingredients_name, :on => :collection
   end
-  resources :favorites,   only: [:create, :destroy, :index]
+  resources :favorites,   only: [:create, :index]
+  delete 'remove_favorite' => 'favorites#destroy'
   post   'ingredients'  => 'recipes#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, only: [:show, :update]
