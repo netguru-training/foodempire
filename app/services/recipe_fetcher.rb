@@ -6,12 +6,12 @@ class RecipeFetcher
 
   attr_reader :page, :limit
 
-  def initialize(page = 0, limit = 0)
+  def initialize(page, limit)
     @page = page
     @limit = limit
   end
 
-  def self.call(page = 0, limit = 0)
+  def self.call(page = 0, limit = 10)
     new(page, limit).call
   end
 
