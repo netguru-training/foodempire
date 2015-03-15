@@ -1,5 +1,5 @@
-class FavoritesController < ApplicationController
-  before_action :set_user, only: [:create, :destroy ]
+class ProductsController < ApplicationController
+  before_action :set_user, only: [ :create, :destroy ]
   
 
   # GET /favorites
@@ -13,12 +13,17 @@ class FavoritesController < ApplicationController
   # POST /favorites
   # POST /favorites.json
   def create
-    recipe = Recipe.find(params[:recipe_id])
-    @favorite = @user.add_to_favorite(recipe.id)
+  	products = Ingredient.find(params[:ids])
+
+  	products.each do |p|
+  		user.products|=p
+  	end
+    #product = Internet.find(params[:product_id])
+    #@favorite = @user.add_to_favorite(product.id)
 
     respond_to do |format|
       if @favorite.save
-        format.html { redirect_to :back, notice: 'Favorite was successfully created.' }
+        format.html { redirect_to :back}
         format.json { render :show, status: :created, location: @favorite }
       else
         format.html { render :new }
@@ -41,7 +46,6 @@ class FavoritesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-
     def set_customer
       @user = current_user
     end
