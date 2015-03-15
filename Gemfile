@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'decent_exposure'
 gem 'decent_decoration'
 gem 'pry-rails'
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'byebug'
