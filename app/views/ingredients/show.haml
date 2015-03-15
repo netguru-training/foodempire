@@ -1,0 +1,19 @@
+.well
+  %h1 Nutritions values:
+  %table{:class => "table table-hover"}
+    %tr
+      %th Serving
+      %th Calories
+      %th Carbs
+      %th Sodium
+      %th Fiber
+      %th Protein
+    -ingredient.nutrition_values.each do |nutrition|
+      %tr
+        %td= nutrition.serving
+        %td= nutrition.calories
+        %td= nutrition.carbs
+        %td= nutrition.sodium
+        %td= nutrition.fiber
+        %td= nutrition.protein
+
