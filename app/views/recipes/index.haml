@@ -2,7 +2,6 @@
   .col-md-1.pull-right
     -if user_signed_in?
       = link_to 'Set preferences', user_path(current_user), class: 'btn btn-success'
-- if recipes.any?
   #recipes
-- else
-  %h3 Type your ingredients on right
+    - if recipes.empty?
+      %h3 Type your ingredients on right
