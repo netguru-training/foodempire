@@ -12,8 +12,10 @@ split = (val) ->
 extractLast = (term) ->
   split(term).pop()
 
+ingredients_list = []
+
 $(document).ready ->
-  fetchRecipes()
+  fetchRecipes([], true)
   ingredients = gon.ingredients
   source = []
   mapping = {}
@@ -23,9 +25,10 @@ $(document).ready ->
     mapping[ingredients[i].label] = ingredients[i].value
     ++i
 
-  ingredients_list = gon.my_ingredients
-  for name in ingredients_list
-    appendIngredient(mapping[ui.item.value], name)
+  for name in gon.my_ingredients
+    appendIngredient(mapping[name], name)
+    ingredients_list << mapping[name]
+
   $('#ingredients').bind('keydown', (event) ->
     if event.keyCode == $.ui.keyCode.TAB and $(this).autocomplete('instance').menu.active
       event.preventDefault()
@@ -43,8 +46,8 @@ $(document).ready ->
         event.preventDefault()
       false
 
-fetchRecipes = (ingredients_list) ->
-  $.get 'recipes.json', { ingredients: ingredients_list }, (data) ->
+fetchRecipes = (ingredients_list, first_fetch = false) ->
+  $.get 'recipes.json', { ingredients: ingredients_list, first_fetch: first_fetch}, (data) ->
     $('#recipes').empty()
     $.each data, (i, item) ->
       recipe = '<article><h3><a href="' + item['recipe_url'] + '">' + item['name'] + '</a>'
@@ -66,7 +69,7 @@ fetchRecipes = (ingredients_list) ->
       if item['total_calories'] != null
         recipe += '  ' + '(' + item['total_calories'] + '  cal' + ')'
       recipe += '</div>'
-      recipe += '</article>'
+      recipe += '</article></br></br></br></br>'
       $('#recipes').append recipe
 
     $(".add-favourite").on 'click', (e) ->
@@ -80,15 +83,13 @@ appendIngredient = (id, name) ->
   ingredient = '<li data-id="' + id + '">'
   ingredient += '<a href class="remove-ingredient">'
   ingredient += '<i class="fa fa-trash"></i></a> ' + name + '</li>'
-  i = $('#selected_ingredients > ul').append ingredient
+  list = $('#selected_ingredients > ul').append ingredient
 
-  $(i).click (e) ->
+  list.children().last().click (e) ->
     e.preventDefault()
-    ingredient_id = $(this).parent().data("id")
-    index = gon.my_ingredients.indexOf(ingredient_id)
-    gon.my_ingredients.splice(index, 1)
-    $(this).parent().remove()
-    fetchRecipes(gon.my_ingredients)
+    ingredient_id = $(e.target).closest('li').data("id")
+    index = ingredients_list.indexOf(ingredient_id)
+    ingredients_list.splice(index, 1)
+    $(e.target).closest('li').remove()
+    fetchRecipes(ingredients_list)
     false
-
-  return false

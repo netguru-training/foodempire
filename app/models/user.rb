@@ -25,13 +25,13 @@ class User < ActiveRecord::Base
   end
 
   def ingredients
-    Ingredient.find(ingredients_ids)
+    Ingredient.where(id: ingredients_ids)
   end
 
 
   def add_to_favorite(recipe_id)
     recipe = favorites.find_by(recipe_id: recipe_id)
-    if !(recipe)      
+    if !(recipe)
       recipe = favorites.build(recipe_id: recipe_id)
     end
     recipe
