@@ -1,0 +1,4 @@
+class CalorificRecipeCalculate
+
+
+end

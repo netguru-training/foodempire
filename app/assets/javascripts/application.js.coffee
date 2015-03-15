@@ -41,11 +41,6 @@ $(document).ready ->
         event.preventDefault()
       false
 
-  $(".add-favourite").click (e, target) ->
-    $.post target.href, { id: target.dataset['id'] }, (data) ->
-      window.location.reload()
-    return false
-
 fetchRecipes = (ingredients_list) ->
   $.get 'recipes.json', { ingredients: ingredients_list }, (data) ->
     $('#recipes').empty()
@@ -69,10 +64,13 @@ fetchRecipes = (ingredients_list) ->
       recipe += '</div>'
       recipe += '</article>'
       $('#recipes').append recipe
-      return
-    return
-  return
 
+    $(".add-favourite").on 'click', (e) ->
+      target = $(e.target).parent()[0]
+      e.preventDefault()
+      $.post target.href, { id: target.dataset['id'] }, (data) ->
+        window.location.reload()
+    return false
 
 appendIngredient = (name) ->
   $('#selected_ingredients > ul').append '<li id=' + name + '><a href><i class="fa fa-trash"></i></a> ' + name + '</li>'
