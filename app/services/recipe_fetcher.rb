@@ -11,7 +11,7 @@ class RecipeFetcher
     @limit = limit
   end
 
-  def self.call(page = 0, limit = 0)
+  def self.call(page = 0, limit = 10)
     new(page, limit).call
   end
 
