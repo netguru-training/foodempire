@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
 
   def index
     if user_signed_in?
-      if params[:ingredients].present?
+      if params[:first_fetch] == "false"
         current_user.update(ingredients_ids: params[:ingredients])
       end
       ingredients = current_user.ingredients

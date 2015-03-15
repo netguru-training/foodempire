@@ -15,7 +15,7 @@ extractLast = (term) ->
 ingredients_list = []
 
 $(document).ready ->
-  fetchRecipes()
+  fetchRecipes([], true)
   ingredients = gon.ingredients
   source = []
   mapping = {}
@@ -46,8 +46,8 @@ $(document).ready ->
         event.preventDefault()
       false
 
-fetchRecipes = (ingredients_list) ->
-  $.get 'recipes.json', { ingredients: ingredients_list }, (data) ->
+fetchRecipes = (ingredients_list, first_fetch = false) ->
+  $.get 'recipes.json', { ingredients: ingredients_list, first_fetch: first_fetch}, (data) ->
     $('#recipes').empty()
     $.each data, (i, item) ->
       recipe = '<article><h3><a href="' + item['recipe_url'] + '">' + item['name'] + '</a>'
