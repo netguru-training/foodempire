@@ -25,7 +25,7 @@ $(document).ready ->
 
   ingredients_list = gon.my_ingredients
   for name in ingredients_list
-    appendIngredient(name)
+    appendIngredient(mapping[ui.item.value], name)
   $('#ingredients').bind('keydown', (event) ->
     if event.keyCode == $.ui.keyCode.TAB and $(this).autocomplete('instance').menu.active
       event.preventDefault()
@@ -37,7 +37,7 @@ $(document).ready ->
     select: (event, ui) ->
       if ingredients_list.indexOf(ui.item.value) == -1
         ingredients_list.push(mapping[ui.item.value])
-        appendIngredient(ui.item.value)
+        appendIngredient(mapping[ui.item.value], ui.item.value)
         $('#ingredients').val ''
         fetchRecipes(ingredients_list)
         event.preventDefault()
@@ -76,6 +76,18 @@ fetchRecipes = (ingredients_list) ->
         window.location.reload()
     return false
 
-appendIngredient = (name) ->
-  $('#selected_ingredients > ul').append '<li id=' + name + '><a href><i class="fa fa-trash"></i></a> ' + name + '</li>'
-  return
+appendIngredient = (id, name) ->
+  ingredient = '<li data-id="' + id + '">'
+  ingredient += '<a href class="remove-ingredient">'
+  ingredient += '<i class="fa fa-trash"></i></a> ' + name + '</li>'
+  $('#selected_ingredients > ul').append ingredient
+
+  $(".remove-ingredient").on 'click', (e) ->
+    alert(1)
+    ingredient_id = $(this).parent().data("id")
+    index = ingredients_list.indexOf(ingredient_id)
+    ingredients_list.splice(index, 1)
+    $(this).parent().remove()
+    fetchRecipes(ingredients_list)
+    e.preventDefault()
+  return false
