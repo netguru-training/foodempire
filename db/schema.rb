@@ -91,11 +91,12 @@ ActiveRecord::Schema.define(version: 20150315131138) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.string   "recipe_url",  null: false
+    t.string   "name",           null: false
+    t.string   "recipe_url",     null: false
     t.string   "picture_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.float    "total_calories"
   end
 
   create_table "users", force: :cascade do |t|
