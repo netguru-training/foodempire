@@ -24,6 +24,8 @@ $(document).ready ->
     ++i
 
   ingredients_list = gon.my_ingredients
+  for name in ingredients_list
+    appendIngredient(name)
   $('#ingredients').bind('keydown', (event) ->
     if event.keyCode == $.ui.keyCode.TAB and $(this).autocomplete('instance').menu.active
       event.preventDefault()
