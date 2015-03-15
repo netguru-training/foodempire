@@ -3,9 +3,8 @@
 #= require twitter/bootstrap
 #= require jquery-ui
 #= require autocomplete-rails
-#= require turbolinks
 #= require_tree .
-
+#= require js-routes
 
 split = (val) ->
   val.split /,\s*/
@@ -51,7 +50,7 @@ fetchRecipes = (ingredients_list) ->
       recipe += '<img  src="' + item['picture_url'] + '"></img></a>'
       recipe += '<div>'
       $.each item['ingredients'], (nr, ingredient) ->
-        recipe += '<a href>' + ingredient['name'] + '</a>';
+        recipe += '<a href="' + Routes.ingredient_path(ingredient['id'])+'">' + ingredient['name'] + '</a>';
         if nr + 1 != item['ingredients'].length
           recipe += ', '
       recipe += '</div>'
