@@ -3,7 +3,8 @@ require 'rails_helper'
 describe UsersController do
   let(:user) { create(:user) }
   let(:user2) { create(:user) }
-  let(:valid_list) { 'apple milk' }
+  let(:valid_list) { 'apple, milk' }
+  let(:invalid_list) { 'apple,milk' }
 
   context 'Current user is profile owner' do
     before do
@@ -24,6 +25,11 @@ describe UsersController do
         User.any_instance.stub(:save).and_return(true)
         put :update, { id: user.to_param, user: { 'blacklisted_ingredients' => valid_list } }
         expect(response).to redirect_to(user_path(user))
+      end
+
+      it 'does not update user preference' do
+        put :update, { id: user.to_param, user: { 'blacklisted_ingredients' => invalid_list } }
+        expect(controller.user.errors).to be_present
       end
 
       it 'redirects to user page' do
