@@ -13,11 +13,14 @@ class RecipesController < ApplicationController
   def index
     if params[:ingredients].present?
       self.recipes = RecipeFinder.new(params[:ingredients]).search
-      render json: { recipes: self.recipes.to_json }
     else
       self.recipes = Recipe.all.includes(:ingredients).limit(10)
     end
     gon.ingredients = Ingredient.all.map { |i| { value: i.id, label: i.name } }
+    respond_to do |format|
+      format.html
+      format.json { render json: self.recipes.to_json(:include => :ingredients) }
+    end
   end
 
   def new

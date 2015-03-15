@@ -14,6 +14,7 @@ extractLast = (term) ->
   split(term).pop()
 
 $(document).ready ->
+  fetchRecipes()
   ingredients = gon.ingredients
   source = []
   mapping = {}
@@ -38,11 +39,25 @@ $(document).ready ->
         appendIngredient(ui.item.value)
         $('#ingredients').val ''
         fetchRecipes(ingredients_list)
+        event.preventDefault()
       false
 
 fetchRecipes = (ingredients_list) ->
-  $.get 'recipes', { ingredients: ingredients_list }, (data) ->
-    updateRecipes(data)
+  $.get 'recipes.json', { ingredients: ingredients_list }, (data) ->
+    $('#recipes').empty()
+    $.each data, (i, item) ->
+      recipe = '<article><h3><a href="' + item['recipe_url'] + '">' + item['name'] + '</a></h3>'
+      recipe += '<a href="' + item['recipe_url'] + '">'
+      recipe += '<img  src="' + item['picture_url'] + '"></img></a>'
+      recipe += '<div>'
+      $.each item['ingredients'], (nr, ingredient) ->
+        recipe += '<a href>' + ingredient['name'] + '</a>';
+        if nr + 1 != item['ingredients'].length
+          recipe += ', '
+      recipe += '</div>'
+      recipe += '</article>'
+      $('#recipes').append recipe
+      return
     return
   return
 
