@@ -31,7 +31,7 @@ class RecipeFetcher
 
   def fetch
     result = []
-    while(limit == 0 || page <= limit)
+    while(page <= limit)
       @page = 1 if page == 0
       url = URL + page.to_s
       puts "Fetching page #{page}..."
