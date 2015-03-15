@@ -1,13 +1,7 @@
 class RecipesController < ApplicationController
   expose(:recipe)
   expose(:recipes)
-  expose(:favorites_hash){
-    hash={}
-    current_user.favorites.each do |f|
-      hash[f.recipe_id] = f.id
-    end
-    hash
-  }
+  expose(:favorites_hash) { current_user.favorites.pluck(:id) }
 
 
   def index
@@ -17,6 +11,7 @@ class RecipesController < ApplicationController
       self.recipes = Recipe.all.includes(:ingredients).limit(10)
     end
     gon.ingredients = Ingredient.all.map { |i| { value: i.id, label: i.name } }
+    gon.favourites = favorites_hash
     respond_to do |format|
       format.html
       format.json { render json: self.recipes.to_json(:include => :ingredients) }

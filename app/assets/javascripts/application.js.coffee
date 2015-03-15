@@ -45,7 +45,12 @@ fetchRecipes = (ingredients_list) ->
   $.get 'recipes.json', { ingredients: ingredients_list }, (data) ->
     $('#recipes').empty()
     $.each data, (i, item) ->
-      recipe = '<article><h3><a href="' + item['recipe_url'] + '">' + item['name'] + '</a></h3>'
+      recipe = '<article><h3><a href="' + item['recipe_url'] + '">' + item['name'] + '</a>'
+      if gon.favourites.indexOf(item['id']) == -1
+        recipe += '<a href=""> <i class="fa fa-heart-o"></i></a>'
+      else
+        recipe += '<a href=""> <i class="fa fa-heart"></i></a>'
+      recipe += '</h3>';
       recipe += '<a href="' + item['recipe_url'] + '">'
       recipe += '<img  src="' + item['picture_url'] + '"></img></a>'
       recipe += '<div>'
