@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  before_action :set_user, only: [ :create, :destroy ]
   
 
   # GET /favorites
