@@ -8,6 +8,8 @@
             %h3
               =link_to Recipe.find(favorites.recipe_id).name, Recipe.find(favorites.recipe_id).recipe_url
             =image_tag (Recipe.find(favorites.recipe_id).picture_url)
+            = link_to favorite_path(favorites.id), method: :delete do
+              %i.fa.fa-heart-o.fa-1x Unlike
       -else
         %h3 You don`t have favorites yet...
     -else
