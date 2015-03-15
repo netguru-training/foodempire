@@ -23,7 +23,7 @@ $(document).ready ->
     mapping[ingredients[i].label] = ingredients[i].value
     ++i
 
-  ingredients_list = []
+  ingredients_list = gon.my_ingredients
   $('#ingredients').bind('keydown', (event) ->
     if event.keyCode == $.ui.keyCode.TAB and $(this).autocomplete('instance').menu.active
       event.preventDefault()

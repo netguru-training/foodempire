@@ -10,13 +10,17 @@ class RecipesController < ApplicationController
   }
 
   def index
+      ingredients = user_signed_in? ? current_user.ingredients_ids : []  
     if params[:ingredients].present?
-      ingredients = params[:ingredients] + current_user.ingredients_ids if user_signed_in?
+      ingredients += params[:ingredients]
       self.recipes = RecipeFinder.new(ingredients).search
       current_user.update(ingredients_ids: params[:ingredients]) if user_signed_in?
+    elsif ingredients.any? 
+      self.recipes = RecipeFinder.new(ingredients).search
     else
       self.recipes = Recipe.all.includes(:ingredients).limit(10)
     end
+    gon.my_ingredients = ingredients
     gon.ingredients = Ingredient.all.map { |i| { value: i.id, label: i.name } }
     gon.favourites = user_signed_in? ? favorites_hash : {}
     respond_to do |format|
