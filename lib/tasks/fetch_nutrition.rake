@@ -3,5 +3,6 @@ namespace :fetch_nutrition do
   task :run  => :environment  do
     puts 'task started'
     NutritionValueFetcher.call
+    puts 'task ended'
   end
 end
