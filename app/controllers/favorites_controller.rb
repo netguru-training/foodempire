@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  
+
   expose(:recipes)
   expose(:recipe)
   expose(:favorites_hash){
@@ -14,7 +14,6 @@ class FavoritesController < ApplicationController
   def index
     if user_signed_in?
       @favorites = current_user.favorites
-
     end
   end
 
@@ -40,7 +39,7 @@ class FavoritesController < ApplicationController
   # DELETE /favorites/1
   # DELETE /favorites/1.json
   def destroy
-    favorite = Favorite.find(params[:format])
+    favorite = Favorite.find(params[:id])
     favorite.destroy
     redirect_to :back
   end

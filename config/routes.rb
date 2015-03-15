@@ -8,8 +8,7 @@ Rails.application.routes.draw do
       get 'show'
     end
   end
-  resources :favorites,   only: [:create, :index]
-  delete 'remove_favorite' => 'favorites#destroy'
+  resources :favorites,   only: [:create, :index, :destroy]
 
   post   'ingredients'  => 'recipes#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

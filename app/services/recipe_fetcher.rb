@@ -11,7 +11,7 @@ class RecipeFetcher
     @limit = limit
   end
 
-  def self.call(page = 0, limit = 0)
+  def self.call(page = 0, limit = 10)
     new(page, limit).call
   end
 
@@ -31,7 +31,7 @@ class RecipeFetcher
 
   def fetch
     result = []
-    while(limit == 0 || page <= limit)
+    while(page <= limit)
       @page = 1 if page == 0
       url = URL + page.to_s
       puts "Fetching page #{page}..."
