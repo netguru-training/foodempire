@@ -6,7 +6,7 @@ class RecipeFetcher
 
   attr_reader :page, :limit
 
-  def initialize(page = 0, limit = 0)
+  def initialize(page, limit)
     @page = page
     @limit = limit
   end
