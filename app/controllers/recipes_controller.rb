@@ -1,6 +1,14 @@
 class RecipesController < ApplicationController
   expose(:recipe)
   expose(:recipes)
+  expose(:favorites_hash){
+    hash={}
+    current_user.favorites.each do |f|
+      hash[f.recipe_id] = f.id
+    end
+    hash
+  }
+
 
   def index
     if params[:ingredients].present?

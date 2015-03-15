@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :recipes do
     get :autocomplete_ingredients_name, :on => :collection
   end
+<<<<<<< HEAD
 
   resources :ingredients do
     member do
@@ -12,6 +13,10 @@ Rails.application.routes.draw do
 
 
   resources :favorites,   only: [:create, :destroy, :index]
+=======
+  resources :favorites,   only: [:create, :index]
+  delete 'remove_favorite' => 'favorites#destroy'
+>>>>>>> 22bf3d6b34f51cb594395f8b8c7472c48bf89087
   post   'ingredients'  => 'recipes#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, only: [:show, :update]
