@@ -80,14 +80,15 @@ appendIngredient = (id, name) ->
   ingredient = '<li data-id="' + id + '">'
   ingredient += '<a href class="remove-ingredient">'
   ingredient += '<i class="fa fa-trash"></i></a> ' + name + '</li>'
-  $('#selected_ingredients > ul').append ingredient
+  i = $('#selected_ingredients > ul').append ingredient
 
-  $(".remove-ingredient").on 'click', (e) ->
-    alert(1)
-    ingredient_id = $(this).parent().data("id")
-    index = ingredients_list.indexOf(ingredient_id)
-    ingredients_list.splice(index, 1)
-    $(this).parent().remove()
-    fetchRecipes(ingredients_list)
+  $(i).click (e) ->
     e.preventDefault()
+    ingredient_id = $(this).parent().data("id")
+    index = gon.my_ingredients.indexOf(ingredient_id)
+    gon.my_ingredients.splice(index, 1)
+    $(this).parent().remove()
+    fetchRecipes(gon.my_ingredients)
+    false
+
   return false

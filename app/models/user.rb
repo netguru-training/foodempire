@@ -41,4 +41,8 @@ class User < ActiveRecord::Base
       recipe.destroy
   end
 
+  def blacklisted
+    Ingredient.where(name: blacklisted_ingredients.split(', '))
+  end
+
 end

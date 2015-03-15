@@ -1,8 +1,17 @@
+%body
+  .well
+    -if user_signed_in?
+      -if current_user.favorites.any?
+        %h1 Your favorites recipes
+        -current_user.favorites.each do |favorites|
+          %article
+            %h3
+              =link_to Recipe.find(favorites.recipe_id).name, Recipe.find(favorites.recipe_id).recipe_url
+            =image_tag (Recipe.find(favorites.recipe_id).picture_url)
+      -else
+        %h3 You don`t have favorites yet...
+    -else
+      %h3 Only logged user can have favorites.
+    %br
+    =link_to 'Back', root_path,  class: 'btn btn-primary'
 
-- if user_signed_in?
-	- if @favorites.any?
-		= render @favorites
-	-else
-		%h3 You don`t have favorites yet...
-- else
-	%h3 Only logged user can have favorites.
