@@ -45,7 +45,14 @@ fetchRecipes = (ingredients_list) ->
   $.get 'recipes.json', { ingredients: ingredients_list }, (data) ->
     $('#recipes').empty()
     $.each data, (i, item) ->
-      recipe = '<article><h3><a href="' + item['recipe_url'] + '">' + item['name'] + '</a></h3>'
+      recipe = '<article><h3><a href="' + item['recipe_url'] + '">' + item['name'] + '</a>'
+      if gon.favourites[item['id']] == undefined
+        recipe += '<a href="' + Routes.favorites_path(recipe_id: item['id']) + '"> ';
+        recipe += '<i class="fa fa-heart-o"></i></a>';
+      else
+        recipe += '<a data-method="delete" href="' + Routes.favorite_path(gon.favourites[item['id']]) + '"> ';
+        recipe += '<i class="fa fa-heart"></i></a>';
+      recipe += '</h3>';
       recipe += '<a href="' + item['recipe_url'] + '">'
       recipe += '<img  src="' + item['picture_url'] + '"></img></a>'
       recipe += '<div>'
@@ -59,6 +66,7 @@ fetchRecipes = (ingredients_list) ->
       return
     return
   return
+
 
 appendIngredient = (name) ->
   $('#selected_ingredients > ul').append '<li id=' + name + '><a href><i class="fa fa-trash"></i></a> ' + name + '</li>'
