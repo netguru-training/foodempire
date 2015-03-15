@@ -14,13 +14,14 @@ class FavoritesController < ApplicationController
   def index
     if user_signed_in?
       @favorites = current_user.favorites
+
     end
   end
 
   # POST /favorites
   # POST /favorites.json
   def create
-    recipe = Recipe.find(params[:recipe_id])
+    recipe = Recipe.find(params[:id])
     @favorite = current_user.add_to_favorite(recipe.id)
 
     respond_to do |format|
@@ -39,7 +40,7 @@ class FavoritesController < ApplicationController
   # DELETE /favorites/1
   # DELETE /favorites/1.json
   def destroy
-    favorite = Favorite.find(params[:id])
+    favorite = Favorite.find(params[:format])
     favorite.destroy
     redirect_to :back
   end
