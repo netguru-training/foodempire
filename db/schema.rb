@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314155933) do
+ActiveRecord::Schema.define(version: 20150315113237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blacklisted_ingredients", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "recipe_id"
@@ -52,17 +57,6 @@ ActiveRecord::Schema.define(version: 20150314155933) do
     t.integer  "ingredient_id", null: false
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string   "quantity"
-    t.integer  "ingredient_id"
-    t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "products", ["ingredient_id"], name: "index_products_on_ingredient_id", using: :btree
-  add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
-
   create_table "recipes", force: :cascade do |t|
     t.string   "name",        null: false
     t.string   "recipe_url",  null: false
@@ -88,6 +82,7 @@ ActiveRecord::Schema.define(version: 20150314155933) do
     t.string   "provider"
     t.string   "uid"
     t.string   "blacklisted_ingredients"
+    t.integer  "ingredients_ids",                                   array: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

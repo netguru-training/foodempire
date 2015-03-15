@@ -11,7 +11,9 @@ class RecipesController < ApplicationController
 
   def index
     if params[:ingredients].present?
-      self.recipes = RecipeFinder.new(params[:ingredients]).search
+      ingredients = params[:ingredients] + current_user.ingredients_ids if user_signed_in?
+      self.recipes = RecipeFinder.new(ingredients).search
+      current_user.update(ingredients_ids: params[:ingredients]) if user_signed_in?
     else
       self.recipes = Recipe.all.includes(:ingredients).limit(10)
     end
