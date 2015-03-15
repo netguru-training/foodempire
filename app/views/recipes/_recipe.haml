@@ -10,5 +10,4 @@
     -if favorites_hash.has_key?(recipe.id) 
       = button_to "Remove", remove_favorite_path(favorites_hash[recipe.id]), method: :delete, class: 'btn-black btn-sm'
     -else
-      =button_to favorites_path(recipe_id: recipe.id), class: "btn-black btn-sm" do
-        %i.icon-heart
+      =button_to "Favorite", favorites_path(recipe_id: recipe.id), class: "btn-black btn-sm"
