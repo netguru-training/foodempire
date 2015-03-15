@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
   }
 
   def index
-      ingredients = user_signed_in? ? current_user.ingredients : []  
+      ingredients = user_signed_in? ? current_user.ingredients : []
     if params[:ingredients].present?
       ingredients_ids = params[:ingredients] + ingredients.map(&:id)
       self.recipes = RecipeFinder.new(ingredients_ids).search
