@@ -14,13 +14,14 @@ class FavoritesController < ApplicationController
   def index
     if user_signed_in?
       @favorites = current_user.favorites
+
     end
   end
 
   # POST /favorites
   # POST /favorites.json
   def create
-    recipe = Recipe.find(params[:recipe_id])
+    recipe = Recipe.find(params[:id])
     @favorite = current_user.add_to_favorite(recipe.id)
 
     respond_to do |format|

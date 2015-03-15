@@ -16,6 +16,39 @@ ActiveRecord::Schema.define(version: 20150315134620) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "admin_users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
   create_table "favorites", force: :cascade do |t|
     t.integer  "recipe_id"
     t.integer  "user_id"
@@ -59,23 +92,13 @@ ActiveRecord::Schema.define(version: 20150315134620) do
     t.integer  "ingredient_id", null: false
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string   "quantity"
-    t.integer  "ingredient_id"
-    t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "products", ["ingredient_id"], name: "index_products_on_ingredient_id", using: :btree
-  add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
-
   create_table "recipes", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.string   "recipe_url",  null: false
+    t.string   "name",           null: false
+    t.string   "recipe_url",     null: false
     t.string   "picture_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.float    "total_calories"
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,6 +118,7 @@ ActiveRecord::Schema.define(version: 20150315134620) do
     t.string   "provider"
     t.string   "uid"
     t.string   "blacklisted_ingredients"
+    t.integer  "ingredients_ids",         default: [],              array: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

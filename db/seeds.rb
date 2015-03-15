@@ -11,7 +11,7 @@ ingredients = Ingredient.create([{ name: 'onion' }, { name: 'garlic' }, { name: 
 
 recipe = Recipe.create({ name: 'Broccoli and Cheese',
   recipe_url: 'http://www.bigoven.com/45151-Broccoli-and-Cheese-Omelet-recipe.html',
-  picture_url: 'http://www.bigoven.com/45151-Broccoli-and-Cheese-Omelet-recipe.html'
+  picture_url: 'http://img.recipepuppy.com/1.jpg'
 })
 
 recipe.ingredients = ingredients.first(3)

@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
-  has_many :products, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -25,6 +24,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  def ingredients
+    Ingredient.find(ingredients_ids)
+  end
 
 
   def add_to_favorite(recipe_id)
