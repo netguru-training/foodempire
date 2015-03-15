@@ -40,11 +40,9 @@ class FavoritesController < ApplicationController
   # DELETE /favorites/1
   # DELETE /favorites/1.json
   def destroy
-    currentd_user.remove_favorite(@favorite)
-    respond_to do |format|
-      format.html { redirect_to :back, notice: 'Favorite was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    favorite = Favorite.find(params[:format])
+    favorite.destroy
+    redirect_to :back
   end
 
 
