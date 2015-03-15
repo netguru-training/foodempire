@@ -1,0 +1,286 @@
+{
+ "total_hits": 28331,
+ "max_score": 1.8666631,
+ "hits": [
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "51c549ef97c3e6efadd6020e",
+   "_score": 1.8666631,
+   "fields": {
+    "item_id": "51c549ef97c3e6efadd6020e",
+    "item_name": "Seasoning Mix, Honey BBQ Chicken Glaze",
+    "brand_id": "51db3816176fe9790a89b3b8",
+    "brand_name": "Chicken",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "51c54a1197c3e6efadd60326",
+   "_score": 1.8666631,
+   "fields": {
+    "item_id": "51c54a1197c3e6efadd60326",
+    "item_name": "Seasoning Mix, Honey Mustard Chicken Glaze",
+    "brand_id": "51db3816176fe9790a89b3b8",
+    "brand_name": "Chicken",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "538f42ea68fcd8d76eb25c79",
+   "_score": 1.8620489,
+   "fields": {
+    "item_id": "538f42ea68fcd8d76eb25c79",
+    "item_name": "Chicken Noodle Soup",
+    "brand_id": "51db380d176fe9790a89b141",
+    "brand_name": "Soup Man",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "51c547b997c3e6efadd5f0d1",
+   "_score": 1.861016,
+   "fields": {
+    "item_id": "51c547b997c3e6efadd5f0d1",
+    "item_name": "Season 'n Fry, Seasoning Mix For Coating Chicken",
+    "brand_id": "51db3816176fe9790a89b3b8",
+    "brand_name": "Chicken",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "54e20d0acc64086e1883f8e7",
+   "_score": 1.7136378,
+   "fields": {
+    "item_id": "54e20d0acc64086e1883f8e7",
+    "item_name": "Chicken Noodle Soup Mix",
+    "brand_id": "5457c152c0cdde5a6ab18c57",
+    "brand_name": "Soup Soupe",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "5457c1780d5781691593ec90",
+   "_score": 1.5939348,
+   "fields": {
+    "item_id": "5457c1780d5781691593ec90",
+    "item_name": "Chicken Tortilla Soup Mix",
+    "brand_id": "5457c152c0cdde5a6ab18c57",
+    "brand_name": "Soup Soupe",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "54aaa044b87d30c344cdb73d",
+   "_score": 1.5524203,
+   "fields": {
+    "item_id": "54aaa044b87d30c344cdb73d",
+    "item_name": "Chicken Noodle Soup",
+    "brand_id": "5460ed8c388fc43c2fa07360",
+    "brand_name": "Chicken Soup for the Soul",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "51c4041f97c3e6dfa4df5276",
+   "_score": 1.5196488,
+   "fields": {
+    "item_id": "51c4041f97c3e6dfa4df5276",
+    "item_name": "Soup, Sweet Chicken Curry",
+    "brand_id": "51db37e0176fe9790a89a2df",
+    "brand_name": "New England Country Soup",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "51c3f38d97c3e6de73cbdcac",
+   "_score": 1.503982,
+   "fields": {
+    "item_id": "51c3f38d97c3e6de73cbdcac",
+    "item_name": "World Renowned Soup, Chicken Vegetable",
+    "brand_id": "51db380d176fe9790a89b141",
+    "brand_name": "Soup Man",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "5505342645d7d6e261315180",
+   "_score": 1.4848707,
+   "fields": {
+    "item_id": "5505342645d7d6e261315180",
+    "item_name": "Chicken Broth, Southwestern Style",
+    "brand_id": "5460ed8c388fc43c2fa07360",
+    "brand_name": "Chicken Soup for the Soul",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "54f8adc1e891f37b5749467f",
+   "_score": 1.4381394,
+   "fields": {
+    "item_id": "54f8adc1e891f37b5749467f",
+    "item_name": "Lentil & Beef Soup",
+    "brand_id": "5460ed8c388fc43c2fa07360",
+    "brand_name": "Chicken Soup for the Soul",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "51c4041a97c3e6dfa4df524b",
+   "_score": 1.4352301,
+   "fields": {
+    "item_id": "51c4041a97c3e6dfa4df524b",
+    "item_name": "Soup, Nana's Chicken",
+    "brand_id": "51db37e0176fe9790a89a2df",
+    "brand_name": "New England Country Soup",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "51c4041f97c3e6dfa4df527a",
+   "_score": 1.4352301,
+   "fields": {
+    "item_id": "51c4041f97c3e6dfa4df527a",
+    "item_name": "Soup, Chicken Pomodoro",
+    "brand_id": "51db37e0176fe9790a89a2df",
+    "brand_name": "New England Country Soup",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "534c049c0cdd99a56e325cdc",
+   "_score": 1.4294162,
+   "fields": {
+    "item_id": "534c049c0cdd99a56e325cdc",
+    "item_name": "Moroccan Style Chicken with Chickpeas Soup",
+    "brand_id": "51db382d176fe9790a89b86f",
+    "brand_name": "Campbell's Go Soup",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "54b3d97c2a44eefe543650a5",
+   "_score": 1.4186941,
+   "fields": {
+    "item_id": "54b3d97c2a44eefe543650a5",
+    "item_name": "Spicy Thai-Style Chicken Noodle Soup",
+    "brand_id": "5460ed8c388fc43c2fa07360",
+    "brand_name": "Chicken Soup for the Soul",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "54c9bc562f790482034ca369",
+   "_score": 1.377406,
+   "fields": {
+    "item_id": "54c9bc562f790482034ca369",
+    "item_name": "Chicken Noodle Soup",
+    "brand_id": "54c94bb41cbc625c132fca08",
+    "brand_name": "Our Bistro Soup",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "51c4041f97c3e6dfa4df5279",
+   "_score": 1.3668277,
+   "fields": {
+    "item_id": "51c4041f97c3e6dfa4df5279",
+    "item_name": "Soup, Chicken Corn Chowder",
+    "brand_id": "51db37e0176fe9790a89a2df",
+    "brand_name": "New England Country Soup",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "5503fed02d5d6db04e071555",
+   "_score": 1.3591911,
+   "fields": {
+    "item_id": "5503fed02d5d6db04e071555",
+    "item_name": "Hearty Minestrone Soup",
+    "brand_id": "5460ed8c388fc43c2fa07360",
+    "brand_name": "Chicken Soup for the Soul",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "5460ed8c388fc43c2fa07361",
+   "_score": 1.3500164,
+   "fields": {
+    "item_id": "5460ed8c388fc43c2fa07361",
+    "item_name": "Tomato Basil Soup",
+    "brand_id": "5460ed8c388fc43c2fa07360",
+    "brand_name": "Chicken Soup for the Soul",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "54f973275837495c22cbed24",
+   "_score": 1.3446314,
+   "fields": {
+    "item_id": "54f973275837495c22cbed24",
+    "item_name": "Soup Toppers, Zesty Tortilla Strips & Red Pepper Crisps",
+    "brand_id": "5460ed8c388fc43c2fa07360",
+    "brand_name": "Chicken Soup for the Soul",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  }
+ ]
+}

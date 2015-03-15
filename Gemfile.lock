@@ -76,6 +76,8 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    font-awesome-sass (4.3.2)
+      sass (~> 3.2)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     gon (5.2.3)
@@ -271,6 +273,7 @@ DEPENDENCIES
   decent_exposure
   devise
   factory_girl_rails
+  font-awesome-sass (~> 4.3.0)
   gon
   haml-rails
   jbuilder (~> 2.0)

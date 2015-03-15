@@ -7,8 +7,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    flash[:notice] = 'User preferences have been updated' if user.update(user_params)
-    redirect_to user_path(user)
+    if user.update(user_params)
+      flash[:notice] = 'User preferences have been updated'
+      redirect_to user_path(user)
+    else 
+      render 'users/show'
+    end
   end
 
   private
