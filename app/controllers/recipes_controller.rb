@@ -11,9 +11,9 @@ class RecipesController < ApplicationController
 
   def index
     if params[:ingredients].present?
-      self.recipes = RecipeFinder.new(params[:ingredients]).search
+      self.recipes = RecipeFinder.new(params[:ingredients], current_user).search
     else
-      self.recipes = Recipe.all.includes(:ingredients).limit(10)
+      self.recipes = Recipe.without_blacklist(current_user).includes(:ingredients).limit(10)
     end
     gon.ingredients = Ingredient.all.map { |i| { value: i.id, label: i.name } }
     gon.favourites = user_signed_in? ? favorites_hash : {}
