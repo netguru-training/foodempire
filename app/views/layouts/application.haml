@@ -24,8 +24,8 @@
           .column.col-sm-2#sidebar
             .nav
               =render 'recipes/label'
-              %li Tutaj bedzie input
-              %li pod nim wybrane skladniki
+              #selected_ingredients
+                %ul.list-unstyled
           .column.col-sm-10#main
             .padding
               .full.col-sm-9
