@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
   end
 
   def blacklisted
+    return Array.new if blacklisted_ingredients.blank?
     Ingredient.where(name: blacklisted_ingredients.split(', '))
   end
 
