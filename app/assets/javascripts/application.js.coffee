@@ -66,7 +66,7 @@ fetchRecipes = (ingredients_list) ->
       if item['total_calories'] != null
         recipe += '  ' + '(' + item['total_calories'] + '  cal' + ')'
       recipe += '</div>'
-      recipe += '</article>'
+      recipe += '</article></br></br></br></br>'
       $('#recipes').append recipe
 
     $(".add-favourite").on 'click', (e) ->
